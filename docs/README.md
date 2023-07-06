@@ -22,10 +22,10 @@
 │   └── onProcess
 │       └── 00-File Writer (file-writer-connector)
 ├── 08-Do While (do-while-connector)
-│   ├── onProcess
-│   │   └── 00-ZIP File (zip-file-connector)
-│   └── onException
-│       └── 00-Log (log-connector)
+│   ├── onException
+│   │   └── 00-Log (log-connector)
+│   └── onProcess
+│       └── 00-ZIP File (zip-file-connector)
 ├── 09-Retry (retry-connector)
 │   └── onProcess
 │       └── 00-Delayer (delayer)
@@ -124,9 +124,9 @@
     └── otherwise-condition-8
         ├── 00-Log (log-connector)
         └── 01-Quando Azedou de vez (choice)
-            ├── otherwise-condition-2
+            ├── when-condition-1
             │   └── 00-Log (log-connector)
-            └── when-condition-1
+            └── otherwise-condition-2
                 └── 00-Log (log-connector)
 
 ```
