@@ -135,6 +135,18 @@
         "failOnError": false
       },
       "id": "ecf71ab4-bb25-438c-9a27-5c508bc08afd"
+    },
+    {
+      "type": "choice",
+      "stepName": "Choice",
+      "when": [
+        {
+          "target": "condition-7",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-8",
+      "id": "6914f6c7-661c-4184-9d97-26ef29549739"
     }
   ],
   "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onProcessTrack": [
@@ -276,6 +288,363 @@
       "stepName": "Delayer",
       "delayMilliseconds": 10,
       "id": "526ee38d-a954-49fc-b8fd-f0241ecd3544"
+    }
+  ],
+  "condition-7": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "24088c2f-92dc-407f-9244-488373430458"
+    },
+    {
+      "type": "connector",
+      "name": "stream-excel-connector",
+      "stepName": "Stream Excel",
+      "params": {
+        "fileName": "file.xlsx",
+        "readSpecificColumnsAsString": "B,D,F",
+        "maxFractionalDigits": 5,
+        "sheetName": "Plan1",
+        "itemIdentifier": "A",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "b8f22728-96fd-41f9-872c-00883f264d18-onProcessTrack",
+        "onException": "b8f22728-96fd-41f9-872c-00883f264d18-onExceptionTrack"
+      },
+      "id": "b8f22728-96fd-41f9-872c-00883f264d18"
+    },
+    {
+      "type": "connector",
+      "name": "parallel-execution-connector",
+      "stepName": "Parallel Execution",
+      "params": {
+        "parallelExecutions": "[{\"description\":\"execution sem medo de ser feliz\",\"executionId\":\"execution-sem-medo-de-ser-feliz\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb\"},{\"description\":\"execution-2\",\"executionId\":\"execution-naturalmente-nova\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47\"},{\"description\":\"execution-3\",\"executionId\":\"execution-3\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456\"}]"
+      },
+      "id": "11356876-4156-493b-8b7f-58aa05f40c0d"
+    }
+  ],
+  "b8f22728-96fd-41f9-872c-00883f264d18-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "008da2f5-66e9-4d8c-9640-7f5e7bca8b9e"
+    }
+  ],
+  "b8f22728-96fd-41f9-872c-00883f264d18-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "ec2d05ef-7988-4e48-a271-43f9abd2b6a1"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb"
+    },
+    {
+      "type": "connector",
+      "name": "stream-file-reader-connector",
+      "stepName": "Stream File Reader",
+      "params": {
+        "fileName": "data.csv",
+        "charset": "UTF-8",
+        "itemIdentifier": "data",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "680e3f7f-5281-4fff-bfb8-564df39d0323-onProcessTrack",
+        "onException": "680e3f7f-5281-4fff-bfb8-564df39d0323-onExceptionTrack"
+      },
+      "id": "680e3f7f-5281-4fff-bfb8-564df39d0323"
+    },
+    {
+      "type": "transformer",
+      "stepName": "Another Transformer (JOLT)",
+      "transformSpec": [
+        {
+          "operation": "shift",
+          "spec": {
+            "body": {
+              "*": "body.&"
+            },
+            "*": "&"
+          }
+        }
+      ],
+      "id": "ad605276-c539-4acb-8c46-b8e343e58545"
+    },
+    {
+      "type": "connector",
+      "name": "digibee-storage-connector",
+      "stepName": "Digibee Storage",
+      "params": {
+        "operation": "upload",
+        "fileName": "local-pdf-test.pdf",
+        "remoteFileName": "pdf-test.pdf",
+        "showFileLink": false,
+        "expirationMillis": 36000,
+        "remoteDirectory": "folder"
+      },
+      "id": "b89acb56-3b47-409d-bef3-5d3b3388807c"
+    },
+    {
+      "type": "connector",
+      "name": "Azure-Blob-Storage-Connector",
+      "stepName": "Blob Storage (Azure)",
+      "accountLabel": "azure",
+      "params": {
+        "operation": "upload",
+        "fileName": "file.csv",
+        "remoteFileName": "test.csv",
+        "containerName": "container",
+        "showFileLink": true,
+        "failOnError": false
+      },
+      "id": "7fbf7672-79a8-4606-ae41-7ca7831c673c"
+    },
+    {
+      "type": "connector",
+      "name": "dropbox-connector",
+      "stepName": "Dropbox",
+      "accountLabel": "dropbox",
+      "params": {
+        "remotePath": "/data.csv",
+        "operation": "download",
+        "localFile": "test.txt"
+      },
+      "id": "06dc0e97-f409-4f9f-a09e-47346e6c68f9"
+    },
+    {
+      "type": "connector",
+      "accountLabel": "mysql",
+      "name": "sap-connector",
+      "stepName": "SAP (IDoc and RFC)",
+      "params": {
+        "failOnError": false,
+        "operation": "RFC",
+        "asHost": "localhost",
+        "lang": "en",
+        "client": "400",
+        "sysnr": "01",
+        "RFC": "YYPCL_RFC_ORDEM_FATURA",
+        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
+      },
+      "id": "b37200e7-07a9-463b-ae0f-a748fabb9ab5"
+    }
+  ],
+  "680e3f7f-5281-4fff-bfb8-564df39d0323-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "excel-connector",
+      "stepName": "Excel",
+      "params": {
+        "operation": "read",
+        "cell": "A:1",
+        "cells": "[\"A:1\", \"B:2\", \"C:6\"]",
+        "sheets": "[\"Planilha2\", \"Planilha4\"]",
+        "cellValue": "example",
+        "excelFullPath": "/Users/example.xlsx",
+        "jsonData": "[{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"}]",
+        "sheetName": "Planilha1",
+        "readAllSheets": false,
+        "failOnError": true
+      },
+      "id": "2584e8a5-fc68-49a7-b127-172a7ae8b557"
+    }
+  ],
+  "680e3f7f-5281-4fff-bfb8-564df39d0323-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "csv-to-excel-connector",
+      "stepName": "CSV to Excel",
+      "params": {
+        "fileName": "file.csv",
+        "delimiter": ",",
+        "failOnError": false,
+        "multipleSheets": false
+      },
+      "id": "efa14025-5850-4dfe-8eb2-4eb1fbc9ff64"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "ca26adad-e8d6-4241-8901-c398ed66da47"
+    },
+    {
+      "type": "choice",
+      "stepName": "Decidir se Funciona",
+      "when": [
+        {
+          "target": "se nao funcionar",
+          "jsonPath": "$"
+        },
+        {
+          "target": "se funcionar parcialmente",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "se funcionar",
+      "id": "58a231fa-160a-429f-ab86-7121e7c54030"
+    }
+  ],
+  "se nao funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "e5092860-7621-4266-8b2c-5f294631d88a"
+    }
+  ],
+  "se funcionar parcialmente": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "2880b982-1553-45e5-83c6-644f90e5922f"
+    }
+  ],
+  "se funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "c059ac8f-2c46-48ec-ac8c-32abb3d86f2a"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9b869224-0edb-462b-b736-d9a537a23456"
+    },
+    {
+      "type": "choice",
+      "stepName": "Choice",
+      "when": [
+        {
+          "target": "condition-3",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-4",
+      "id": "33d5e807-401b-4459-86ed-c31b2647fb22"
+    }
+  ],
+  "condition-3": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "6c1a4049-0186-4c20-aae8-7b2417860a41"
+    }
+  ],
+  "condition-4": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "51d04764-2ec5-4e39-9824-94109b03ce91"
+    }
+  ],
+  "condition-8": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "ba49a47b-1ea7-4643-b134-cf587a629922"
+    },
+    {
+      "type": "choice",
+      "stepName": "Quando Azedou de vez",
+      "when": [
+        {
+          "target": "condition-1",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-2",
+      "id": "ab28e632-365e-43a3-9609-00a8117d399e"
+    }
+  ],
+  "condition-1": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "bab40d8c-c8b0-4153-a0e5-ffa8b0f44aa9"
+    }
+  ],
+  "condition-2": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "8bfbe92d-64cb-40cb-ad41-a076ad4f8fbd"
     }
   ]
 }
