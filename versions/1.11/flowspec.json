@@ -11,7 +11,7 @@
       "stepName": "Git Config",
       "params": {
         "gitbranch": "main",
-        "gitmerge": false,
+        "gitmerge": true,
         "gittags": [
           "db_configuration",
           "newsystem",
