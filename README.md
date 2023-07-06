@@ -7,12 +7,12 @@
 ├── 03-Template Transformer (template-transformer)
 ├── 04-JSON Generator (json-generator-connector)
 ├── 05-Stream File Reader Pattern (stream-file-reader-pattern-connector)
-│   ├── onProcess
-│   │   ├── 00-CSV to Excel (csv-to-excel-connector)
-│   │   ├── 01-Log (log-connector)
-│   │   └── 02-Log (log-connector)
-│   └── onException
-│       └── 00-CSV to Excel (csv-to-excel-connector)
+│   ├── onException
+│   │   └── 00-CSV to Excel (csv-to-excel-connector)
+│   └── onProcess
+│       ├── 00-CSV to Excel (csv-to-excel-connector)
+│       ├── 01-Log (log-connector)
+│       └── 02-Log (log-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
 │   ├── onException
 │   │   └── 00-File Writer (file-writer-connector)
@@ -24,10 +24,10 @@
 │   └── onProcess
 │       └── 00-File Writer (file-writer-connector)
 ├── 08-Do While (do-while-connector)
-│   ├── onException
-│   │   └── 00-Log (log-connector)
-│   └── onProcess
-│       └── 00-ZIP File (zip-file-connector)
+│   ├── onProcess
+│   │   └── 00-ZIP File (zip-file-connector)
+│   └── onException
+│       └── 00-Log (log-connector)
 ├── 09-Retry (retry-connector)
 │   └── onProcess
 │       └── 00-Delayer (delayer)
@@ -43,11 +43,11 @@
     │       ├── execution-execution-naturalmente-nova
     │       │   ├── 00-Log (log-connector)
     │       │   └── 01-Decidir se Funciona (choice)
-    │       │       ├── when-se nao funcionar
-    │       │       │   └── 00-Log (log-connector)
     │       │       ├── otherwise-se funcionar
     │       │       │   └── 00-Log (log-connector)
-    │       │       └── when-se funcionar parcialmente
+    │       │       ├── when-se funcionar parcialmente
+    │       │       │   └── 00-Log (log-connector)
+    │       │       └── when-se nao funcionar
     │       │           └── 00-Log (log-connector)
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)
@@ -71,9 +71,9 @@
     └── otherwise-condition-8
         ├── 00-Log (log-connector)
         └── 01-Quando Azedou de vez (choice)
-            ├── when-condition-1
+            ├── otherwise-condition-2
             │   └── 00-Log (log-connector)
-            └── otherwise-condition-2
+            └── when-condition-1
                 └── 00-Log (log-connector)
 
 ```
