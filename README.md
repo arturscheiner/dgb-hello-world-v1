@@ -14,10 +14,10 @@
 │       ├── 01-Log (log-connector)
 │       └── 02-Log (log-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
-│   ├── onProcess
-│   │   └── 00-Excel (excel-connector)
-│   └── onException
-│       └── 00-File Writer (file-writer-connector)
+│   ├── onException
+│   │   └── 00-File Writer (file-writer-connector)
+│   └── onProcess
+│       └── 00-Excel (excel-connector)
 ├── 07-Stream XML File Reader (stream-xml-file-reader-connector)
 │   ├── onException
 │   │   └── 00-XML Schema Validator (xml-validator-connector)
@@ -43,9 +43,9 @@
     │       ├── execution-execution-3
     │       │   ├── 00-Log (log-connector)
     │       │   └── 01-Choice (choice)
-    │       │       ├── otherwise-condition-4
+    │       │       ├── when-condition-3
     │       │       │   └── 00-Log (log-connector)
-    │       │       └── when-condition-3
+    │       │       └── otherwise-condition-4
     │       │           └── 00-Log (log-connector)
     │       ├── execution-execution-naturalmente-nova
     │       │   ├── 00-Log (log-connector)
