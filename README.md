@@ -14,10 +14,10 @@
 │       ├── 01-Log (log-connector)
 │       └── 02-Log (log-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
-│   ├── onProcess
-│   │   └── 00-Excel (excel-connector)
-│   └── onException
-│       └── 00-File Writer (file-writer-connector)
+│   ├── onException
+│   │   └── 00-File Writer (file-writer-connector)
+│   └── onProcess
+│       └── 00-Excel (excel-connector)
 ├── 07-Stream XML File Reader (stream-xml-file-reader-connector)
 │   ├── onException
 │   │   └── 00-XML Schema Validator (xml-validator-connector)
@@ -43,11 +43,11 @@
     │       ├── execution-execution-naturalmente-nova
     │       │   ├── 00-Log (log-connector)
     │       │   └── 01-Decidir se Funciona (choice)
+    │       │       ├── when-se nao funcionar
+    │       │       │   └── 00-Log (log-connector)
     │       │       ├── otherwise-se funcionar
     │       │       │   └── 00-Log (log-connector)
-    │       │       ├── when-se funcionar parcialmente
-    │       │       │   └── 00-Log (log-connector)
-    │       │       └── when-se nao funcionar
+    │       │       └── when-se funcionar parcialmente
     │       │           └── 00-Log (log-connector)
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)
@@ -71,9 +71,9 @@
     └── otherwise-condition-8
         ├── 00-Log (log-connector)
         └── 01-Quando Azedou de vez (choice)
-            ├── otherwise-condition-2
+            ├── when-condition-1
             │   └── 00-Log (log-connector)
-            └── when-condition-1
+            └── otherwise-condition-2
                 └── 00-Log (log-connector)
 
 ```
