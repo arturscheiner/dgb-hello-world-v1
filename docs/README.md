@@ -53,9 +53,9 @@
     │       ├── execution-execution-3
     │       │   ├── 00-Log (log-connector)
     │       │   └── 01-Choice (choice)
-    │       │       ├── when-condition-3
+    │       │       ├── otherwise-condition-4
     │       │       │   └── 00-Log (log-connector)
-    │       │       └── otherwise-condition-4
+    │       │       └── when-condition-3
     │       │           └── 00-Log (log-connector)
     │       └── execution-execution-naturalmente-nova
     │           ├── 00-Log (log-connector)
