@@ -50,10 +50,10 @@
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)
     │       │   ├── 01-Stream File Reader (stream-file-reader-connector)
-    │       │   │   ├── onException
-    │       │   │   │   └── 00-CSV to Excel (csv-to-excel-connector)
-    │       │   │   └── onProcess
-    │       │   │       └── 00-Excel (excel-connector)
+    │       │   │   ├── onProcess
+    │       │   │   │   └── 00-Excel (excel-connector)
+    │       │   │   └── onException
+    │       │   │       └── 00-CSV to Excel (csv-to-excel-connector)
     │       │   ├── 02-Another Transformer (JOLT) (transformer)
     │       │   ├── 03-Digibee Storage (digibee-storage-connector)
     │       │   ├── 04-Blob Storage (Azure) (Azure-Blob-Storage-Connector)
