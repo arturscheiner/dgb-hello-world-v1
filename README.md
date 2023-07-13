@@ -7,12 +7,12 @@
 ├── 03-Template Transformer (template-transformer)
 ├── 04-JSON Generator (json-generator-connector)
 ├── 05-Stream File Reader Pattern (stream-file-reader-pattern-connector)
-│   ├── onException
-│   │   └── 00-CSV to Excel (csv-to-excel-connector)
-│   └── onProcess
-│       ├── 00-CSV to Excel (csv-to-excel-connector)
-│       ├── 01-Log (log-connector)
-│       └── 02-Log (log-connector)
+│   ├── onProcess
+│   │   ├── 00-CSV to Excel (csv-to-excel-connector)
+│   │   ├── 01-Log (log-connector)
+│   │   └── 02-Log (log-connector)
+│   └── onException
+│       └── 00-CSV to Excel (csv-to-excel-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
 │   ├── onException
 │   │   └── 00-File Writer (file-writer-connector)
@@ -24,10 +24,10 @@
 │   └── onProcess
 │       └── 00-File Writer (file-writer-connector)
 ├── 08-Do While (do-while-connector)
-│   ├── onProcess
-│   │   └── 00-ZIP File (zip-file-connector)
-│   └── onException
-│       └── 00-Log (log-connector)
+│   ├── onException
+│   │   └── 00-Log (log-connector)
+│   └── onProcess
+│       └── 00-ZIP File (zip-file-connector)
 ├── 09-Retry (retry-connector)
 │   └── onProcess
 │       └── 00-Delayer (delayer)
@@ -110,22 +110,22 @@
             │       │               └── execution-execution-2
             │       │                   ├── 00-Log-2s (log-connector)
             │       │                   └── 01-For Each 0 (for-each-connector)
-            │       │                       ├── onProcess
-            │       │                       │   ├── 00-JSON Transformer (json-transformer-connector)
-            │       │                       │   └── 01-Block do For-Each 1 (block-execution-connector)
-            │       │                       │       ├── onException
-            │       │                       │       │   └── 00-Throw Error do Block do For-Each (throw-error-connector)
-            │       │                       │       └── onProcess
-            │       │                       │           ├── 00-Log do Block do For-Each (log-connector)
-            │       │                       │           └── 01-Block-Execution 2 (block-execution-connector)
-            │       │                       │               ├── onException
-            │       │                       │               │   ├── 00-Event Publisher (event-publisher-connector)
-            │       │                       │               │   └── 01-Throw Error (throw-error-connector)
-            │       │                       │               └── onProcess
-            │       │                       │                   ├── 00-Log (log-connector)
-            │       │                       │                   └── 01-SAP (IDoc and RFC) (sap-connector)
-            │       │                       └── onException
-            │       │                           └── 00-Throw Error do For-Each (throw-error-connector)
+            │       │                       ├── onException
+            │       │                       │   └── 00-Throw Error do For-Each (throw-error-connector)
+            │       │                       └── onProcess
+            │       │                           ├── 00-JSON Transformer (json-transformer-connector)
+            │       │                           └── 01-Block do For-Each 1 (block-execution-connector)
+            │       │                               ├── onException
+            │       │                               │   └── 00-Throw Error do Block do For-Each (throw-error-connector)
+            │       │                               └── onProcess
+            │       │                                   ├── 00-Log do Block do For-Each (log-connector)
+            │       │                                   └── 01-Block-Execution 2 (block-execution-connector)
+            │       │                                       ├── onException
+            │       │                                       │   ├── 00-Event Publisher (event-publisher-connector)
+            │       │                                       │   └── 01-Throw Error (throw-error-connector)
+            │       │                                       └── onProcess
+            │       │                                           ├── 00-Log (log-connector)
+            │       │                                           └── 01-SAP (IDoc and RFC) (sap-connector)
             │       └── otherwise-se o bicho pegar
             │           └── 00-Log de nada (log-connector)
             └── when-condition-1
