@@ -19,10 +19,10 @@
 │   └── onProcess
 │       └── 00-Excel (excel-connector)
 ├── 07-Stream XML File Reader (stream-xml-file-reader-connector)
-│   ├── onException
-│   │   └── 00-XML Schema Validator (xml-validator-connector)
-│   └── onProcess
-│       └── 00-File Writer (file-writer-connector)
+│   ├── onProcess
+│   │   └── 00-File Writer (file-writer-connector)
+│   └── onException
+│       └── 00-XML Schema Validator (xml-validator-connector)
 ├── 08-Do While (do-while-connector)
 │   ├── onException
 │   │   └── 00-Log (log-connector)
@@ -35,9 +35,9 @@
     ├── when-condition-7
     │   ├── 00-Log (log-connector)
     │   ├── 01-Stream Excel (stream-excel-connector)
-    │   │   ├── onException
+    │   │   ├── onProcess
     │   │   │   └── 00-Log (log-connector)
-    │   │   └── onProcess
+    │   │   └── onException
     │   │       └── 00-Log (log-connector)
     │   └── 02-Parallel Execution (parallel-execution-connector)
     │       ├── execution-execution-3
