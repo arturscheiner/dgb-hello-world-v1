@@ -645,6 +645,459 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "8bfbe92d-64cb-40cb-ad41-a076ad4f8fbd"
+    },
+    {
+      "type": "choice",
+      "stepName": "Quando Azedou de vez",
+      "when": [
+        {
+          "target": "se o bicho não pegar",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "se o bicho pegar",
+      "id": "fd9b78c2-74bb-4cd9-87ec-3814b9e0a6b7"
+    }
+  ],
+  "se o bicho não pegar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log de dois",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "05fd9ada-c009-4d76-8fa2-2101ae51eb2c"
+    },
+    {
+      "type": "choice",
+      "stepName": "Choice",
+      "when": [
+        {
+          "target": "condition-5",
+          "jsonPath": "$"
+        },
+        {
+          "target": "condition-9ssss",
+          "jsonPath": "$"
+        },
+        {
+          "target": "condition-9",
+          "jsonPath": "$"
+        },
+        {
+          "target": "condition-10 com pão",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-6",
+      "id": "540e0db6-adef-43cd-b3ac-247e33c49f0d"
+    }
+  ],
+  "condition-5": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Logs",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "bdbcac2a-0f5a-426b-b6c3-a12020dcaa60"
+    }
+  ],
+  "condition-9ssss": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log-eterno",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "00563018-5e96-4e34-94a7-d5fccf70414c"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Bloco de Validação Inicial",
+      "params": {
+        "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack",
+        "onException": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack"
+      },
+      "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c",
+      "description": "Document here what this block is supposed to do."
+    }
+  ],
+  "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log de Validação Inicial",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "6b17c8d5-1234-4472-a99d-4c77a04141eb"
+    }
+  ],
+  "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log - onException",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "61896575-6d21-4e5e-9fd9-747ef4bbff2b"
+    }
+  ],
+  "condition-9": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "ee678ac3-69e2-4b00-abca-83d3fe0bafc1"
+    },
+    {
+      "type": "connector",
+      "name": "do-while-connector",
+      "stepName": "Do While",
+      "params": {
+        "iteration": "10",
+        "timeout": 300000,
+        "showLoopIndex": false,
+        "onProcess": "7fcaf307-dc7d-4b18-968a-00b7206f1e1e-onProcessTrack"
+      },
+      "id": "7fcaf307-dc7d-4b18-968a-00b7206f1e1e"
+    }
+  ],
+  "7fcaf307-dc7d-4b18-968a-00b7206f1e1e-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "hl7v2-mllp-connector",
+      "stepName": "HL7",
+      "params": {
+        "host": "hl7.server.com",
+        "port": 2575,
+        "connectTimeoutInMs": 3000,
+        "hl7Message": "",
+        "hl7MessageCharset": "UTF-8",
+        "failOnError": false
+      },
+      "id": "77f0ef11-a49a-40f9-bf3b-2a970427f596"
+    }
+  ],
+  "condition-10 com pão": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "832ce682-e5a6-49a7-b65a-62dec97eca18"
+    },
+    {
+      "type": "connector",
+      "accountLabel": "mysql",
+      "name": "sap-connector",
+      "stepName": "SAP (IDoc and RFC)",
+      "params": {
+        "failOnError": false,
+        "operation": "RFC",
+        "asHost": "localhost",
+        "lang": "en",
+        "client": "400",
+        "sysnr": "01",
+        "RFC": "YYPCL_RFC_ORDEM_FATURA",
+        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
+      },
+      "id": "6be3f642-c30f-4c56-8637-c004ff74bff5"
+    },
+    {
+      "type": "connector",
+      "name": "dropbox-connector",
+      "stepName": "Dropbox",
+      "accountLabel": "dropbox",
+      "params": {
+        "remotePath": "/data.csv",
+        "operation": "download",
+        "localFile": "test.txt"
+      },
+      "id": "9f0e3086-59d5-40c2-a925-3037ae34f43c"
+    },
+    {
+      "type": "connector",
+      "name": "stream-json-file-reader-connector",
+      "stepName": "Stream JSON File Reader",
+      "params": {
+        "fileName": "data.json",
+        "itemIdentifier": "data",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "2bc8054d-9fdc-470a-bc64-2955b741f083-onProcessTrack"
+      },
+      "id": "2bc8054d-9fdc-470a-bc64-2955b741f083"
+    }
+  ],
+  "2bc8054d-9fdc-470a-bc64-2955b741f083-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "file-reader-connector",
+      "stepName": "File Reader",
+      "params": {
+        "fileName": "data.csv",
+        "maxSizeFile": 1048576,
+        "isBinary": false
+      },
+      "id": "b0e06b24-640e-45ca-bf70-09156c9c434f"
+    },
+    {
+      "type": "connector",
+      "name": "gzip-connector-v2",
+      "stepName": "GZIP V2 (Compress and Decompress)",
+      "params": {
+        "operation": "compress_fields",
+        "failOnError": false,
+        "jsonField": "body.test",
+        "preserveOriginal": false,
+        "isBinary": false
+      },
+      "id": "5a6e4475-178b-480d-afe3-f331ac2f6490"
+    }
+  ],
+  "condition-6": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log - OTHERWISE",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "242a22a5-dd5c-4756-b7b7-f2d376af121a"
+    },
+    {
+      "type": "connector",
+      "name": "parallel-execution-connector",
+      "stepName": "Parallel Execution",
+      "params": {
+        "parallelExecutions": "[{\"description\":\"execution-1-log-1\",\"executionId\":\"execution-1\",\"target\":\"79a4ba5c-025d-499d-8de8-95519b1f0017:7741ff31-84a6-4da7-b09b-4af51ca6fb1a\"},{\"description\":\"execution-2-log-2\",\"executionId\":\"execution-2\",\"target\":\"79a4ba5c-025d-499d-8de8-95519b1f0017:99bf0ce8-0571-4ac9-a071-a322ece58c48\"}]"
+      },
+      "id": "79a4ba5c-025d-499d-8de8-95519b1f0017"
+    }
+  ],
+  "79a4ba5c-025d-499d-8de8-95519b1f0017:7741ff31-84a6-4da7-b09b-4af51ca6fb1a": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log-1s",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "7741ff31-84a6-4da7-b09b-4af51ca6fb1a"
+    },
+    {
+      "type": "connector",
+      "name": "stream-db-connector-v3",
+      "accountLabel": "mysql-2",
+      "stepName": "Stream DB V3",
+      "params": {
+        "url": "jdbc:mysql://35.223.175.97/db-training",
+        "sql": "select * from clientes LIMIT 2",
+        "itemIdentifier": "codigo",
+        "parallel": false,
+        "failOnError": false,
+        "keepConnection": true,
+        "onProcess": "23961bee-5dbc-4435-98a3-223892db04df-onProcessTrack"
+      },
+      "id": "23961bee-5dbc-4435-98a3-223892db04df"
+    }
+  ],
+  "23961bee-5dbc-4435-98a3-223892db04df-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "relation-connector",
+      "stepName": "Relationship",
+      "params": {
+        "operation": "translate",
+        "translatePath": "relation.obj.id",
+        "field1": "teste",
+        "relationId": "5ac7c669b7579d4b52f6d489"
+      },
+      "id": "56175017-e11e-4656-b538-2ff094069a61"
+    }
+  ],
+  "79a4ba5c-025d-499d-8de8-95519b1f0017:99bf0ce8-0571-4ac9-a071-a322ece58c48": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log-2s",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "99bf0ce8-0571-4ac9-a071-a322ece58c48"
+    },
+    {
+      "type": "connector",
+      "name": "for-each-connector",
+      "stepName": "For Each 0",
+      "params": {
+        "jsonPath": "$.content",
+        "itemIdentifier": "",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack",
+        "onException": "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack"
+      },
+      "id": "30c16054-d516-40e7-a499-8ae815d5f811"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "json-transformer-connector",
+      "stepName": "JSON Transformer",
+      "params": {
+        "failOnError": false
+      },
+      "id": "e7b646d0-b76e-4952-ba91-c6300bf636fe"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block do For-Each 1",
+      "params": {
+        "onProcess": "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack",
+        "onException": "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack"
+      },
+      "id": "19177c23-6fe1-4806-8819-af526bda360a",
+      "description": "Document here what this block is supposed to do."
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log do Block do For-Each",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9131657b-f0cc-4bff-9eb2-d94eaf84583b"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block-Execution 2",
+      "params": {
+        "onProcess": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack",
+        "onException": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack"
+      },
+      "id": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd",
+      "description": "Document here what this block is supposed to do."
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "66174384-a15d-41c7-8784-8c307cc47a51"
+    },
+    {
+      "type": "connector",
+      "accountLabel": "mysql",
+      "name": "sap-connector",
+      "stepName": "SAP (IDoc and RFC)",
+      "params": {
+        "failOnError": false,
+        "operation": "RFC",
+        "asHost": "localhost",
+        "lang": "en",
+        "client": "400",
+        "sysnr": "01",
+        "RFC": "YYPCL_RFC_ORDEM_FATURA",
+        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
+      },
+      "id": "fc76cac2-69ba-4059-b685-68f570867c87"
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack": [
+    {
+      "type": "connector",
+      "stepName": "Event Publisher",
+      "name": "event-publisher-connector",
+      "params": {
+        "eventName": "{{ DEFAULT(message.eventName, \"new-event\") }}",
+        "body": "{{ message.$ }}",
+        "showSendEventLog": false,
+        "stopOnError": false
+      },
+      "id": "b582f763-39f9-4ae7-82e8-110c50af6f08"
+    },
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "9037c7ac-bdd1-465b-8d09-72029ecd5d1f"
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error do Block do For-Each",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "120cce17-9d95-45a8-9193-2b3f42374e60"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error do For-Each",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "0e5969b9-97e2-49cf-b605-e68fe917a30d"
+    }
+  ],
+  "se o bicho pegar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log de nada",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "c3cb64d5-aa4d-413b-a0fc-1cba034d38ac"
     }
   ]
 }
