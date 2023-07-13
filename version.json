@@ -1,8 +1,8 @@
 {
   "name" : "dgb-hello-world",
-  "id" : "5e0e5b95-abf6-425e-9fcb-c83f84522e3e",
-  "version" : "1.11",
-  "checksum" : "07930",
-  "summary" : "Novo commit no sistema",
-  "description" : "Ultimately, the trick to structuring an exceptional commit message is to find the proper balance between brevity and detail."
+  "id" : "",
+  "version" : "",
+  "checksum" : "da39a",
+  "summary" : "Version .07930",
+  "description" : "Commit Message Capsule not configured for this Pipeline. The default summary and description are being used."
 }
