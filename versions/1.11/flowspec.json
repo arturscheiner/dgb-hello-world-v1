@@ -28,7 +28,7 @@
       "type": "connector",
       "stepName": "JSON Generations Super",
       "params": {
-        "json": "{\n  \"request\": {\n    \"code\": 213,\n    \"value\": 4513423.1322,\n    \"description\": \"   test request   \",\n    \"items\": [\n      {\n        \"id\": \"12345\",\n        \"name\": \"item 1\",\n        \"quantity\": 2\n      },\n      {\n        \"id\": \"54321\",\n        \"name\": \"item 2\",\n        \"quantity\": 5\n      }\n    ],\n    \"items2\": [\n      {\n        \"id2\": \"12345\",\n        \"name2\": \"item 1\",\n        \"quantity2\": 2\n      },\n      {\n        \"id2\": \"54321\",\n        \"name2\": \"item 2\",\n        \"quantity2\": 5\n      }\n    ]\n  }\n}",
+        "json": "{\n  \"request\": {\n    \"code\": 213,\n    \"value\": 4513423.1322,\n    \"description\": \"   test request   \",\n    \"items\": [\n      {\n        \"id\": \"12345\",\n        \"name\": \"item 11\",\n        \"quantity\": 2\n      },\n      {\n        \"id\": \"54321\",\n        \"name\": \"item 2\",\n        \"quantity\": 5\n      }\n    ],\n    \"items2\": [\n      {\n        \"id2\": \"12345\",\n        \"name2\": \"item 1\",\n        \"quantity2\": 2\n      },\n      {\n        \"id2\": \"54321\",\n        \"name2\": \"item 2\",\n        \"quantity2\": 5\n      }\n    ]\n  }\n}",
         "failOnError": false
       },
       "id": "01965f1c-2ead-48a4-88a8-d98a635f116f"
