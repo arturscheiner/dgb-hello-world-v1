@@ -1,0 +1,1 @@
+capsule-v1-demo-devops-commit-message-2.0 00 c8ae5da1-6da7-4dd5-aa9d-c1242194e33c /Users/artur.scheiner/Digibee/utils/dgb-gitsync/model/templates /Users/artur.scheiner/.dgb-gs/realms/demo/pipelines/dgb-hello-world-v1/docs /Users/artur.scheiner/.dgb-gs/cache/

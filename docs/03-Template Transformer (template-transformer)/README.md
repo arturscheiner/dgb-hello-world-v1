@@ -1,0 +1,1 @@
+template-transformer 03 88e12735-1c97-42f5-9165-26a72004d576 /Users/artur.scheiner/Digibee/utils/dgb-gitsync/model/templates /Users/artur.scheiner/.dgb-gs/realms/demo/pipelines/dgb-hello-world-v1/docs /Users/artur.scheiner/.dgb-gs/cache/

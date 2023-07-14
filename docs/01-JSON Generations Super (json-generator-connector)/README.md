@@ -1,0 +1,1 @@
+json-generator-connector 01 01965f1c-2ead-48a4-88a8-d98a635f116f /Users/artur.scheiner/Digibee/utils/dgb-gitsync/model/templates /Users/artur.scheiner/.dgb-gs/realms/demo/pipelines/dgb-hello-world-v1/docs /Users/artur.scheiner/.dgb-gs/cache/

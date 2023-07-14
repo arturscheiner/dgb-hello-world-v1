@@ -1,0 +1,1 @@
+transformer 02 58fe81e8-cc2d-4907-9d69-42d8f844b2ee /Users/artur.scheiner/Digibee/utils/dgb-gitsync/model/templates /Users/artur.scheiner/.dgb-gs/realms/demo/pipelines/dgb-hello-world-v1/docs /Users/artur.scheiner/.dgb-gs/cache/
