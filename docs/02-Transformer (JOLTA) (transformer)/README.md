@@ -1,8 +1,6 @@
 # Step Name -> Transformer (JOLTA)
 ## Connector Denominator -> transformer
 
-### Dependencies
-
 ## Description
 
 Transformer (JOLT) allows the manipulation of a JSON through JOLT technology.

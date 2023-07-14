@@ -2,15 +2,15 @@
 ## This is the pipeline components tree:
 ```bash
 ├── 00-Git Config (capsule-v1-demo-devops-commit-message-2.0)
-├── 01-JSON Generations Super (json-generator-connector)
 ├── Git Config-c8ae5
+├── 01-JSON Generations Super (json-generator-connector)
 ├── 02-Transformer (JOLTA) (transformer)
-├── JSON Generations Super-01965
-├── Transformer (JOLTA)-58fe8
 ├── 03-Template Transformer (template-transformer)
 ├── 04-JSON Generator (json-generator-connector)
+├── JSON Generations Super-01965
 ├── JSON Generator-78007
 ├── Template Transformer-88e12
+├── Transformer (JOLTA)-58fe8
 ├── 05-Stream File Reader Pattern (stream-file-reader-pattern-connector)
 │   ├── onException
 │   │   └── 00-CSV to Excel (csv-to-excel-connector)
@@ -49,11 +49,11 @@
     │       ├── execution-execution-naturalmente-nova
     │       │   ├── 00-Log (log-connector)
     │       │   └── 01-Decidir se Funciona (choice)
+    │       │       ├── when-se nao funcionar
+    │       │       │   └── 00-Log (log-connector)
     │       │       ├── otherwise-se funcionar
     │       │       │   └── 00-Log (log-connector)
-    │       │       ├── when-se funcionar parcialmente
-    │       │       │   └── 00-Log (log-connector)
-    │       │       └── when-se nao funcionar
+    │       │       └── when-se funcionar parcialmente
     │       │           └── 00-Log (log-connector)
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)

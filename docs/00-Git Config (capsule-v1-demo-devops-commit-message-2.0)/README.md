@@ -1,8 +1,6 @@
 # Step Name -> Git Config
 ## Connector Denominator -> capsule-v1-demo-devops-commit-message-2.0
 
-### Dependencies
-
 ## Description
 
 Digibee Capsules are reusable components that can be used or created by any user of the Platform by applying the same visual development model designed in the pipeline creation, providing a reusable, secure, validated and evolving business logic.

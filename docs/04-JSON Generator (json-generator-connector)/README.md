@@ -1,8 +1,6 @@
 # Step Name -> JSON Generator
 ## Connector Denominator -> json-generator-connector
 
-### Dependencies
-
 ## Description
 
 JSON Generator (Mock) creates a JSON object. This component accepts any input.
