@@ -14,10 +14,10 @@
 │       ├── 01-Log (log-connector)
 │       └── 02-Log (log-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
-│   ├── onProcess
-│   │   └── 00-Excel (excel-connector)
-│   └── onException
-│       └── 00-File Writer (file-writer-connector)
+│   ├── onException
+│   │   └── 00-File Writer (file-writer-connector)
+│   └── onProcess
+│       └── 00-Excel (excel-connector)
 ├── 07-Stream XML File Reader (stream-xml-file-reader-connector)
 │   ├── onException
 │   │   └── 00-XML Schema Validator (xml-validator-connector)
@@ -52,10 +52,10 @@
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)
     │       │   ├── 01-Stream File Reader (stream-file-reader-connector)
-    │       │   │   ├── onProcess
-    │       │   │   │   └── 00-Excel (excel-connector)
-    │       │   │   └── onException
-    │       │   │       └── 00-CSV to Excel (csv-to-excel-connector)
+    │       │   │   ├── onException
+    │       │   │   │   └── 00-CSV to Excel (csv-to-excel-connector)
+    │       │   │   └── onProcess
+    │       │   │       └── 00-Excel (excel-connector)
     │       │   ├── 02-Another Transformer (JOLT) (transformer)
     │       │   └── 03-Digibee Storage (digibee-storage-connector)
     │       └── execution-execution-3
@@ -76,11 +76,6 @@
             │       │   └── 01-Choice (choice)
             │       │       ├── when-condition-5
             │       │       │   └── 00-Logs (log-connector)
-            │       │       ├── when-condition-9
-            │       │       │   ├── 00-Log (log-connector)
-            │       │       │   └── 01-Do While (do-while-connector)
-            │       │       │       └── onProcess
-            │       │       │           └── 00-HL7 (hl7v2-mllp-connector)
             │       │       ├── when-condition-9ssss
             │       │       │   ├── 00-Log-eterno (log-connector)
             │       │       │   └── 01-Bloco de Validação Inicial (block-execution-connector)
@@ -105,23 +100,28 @@
             │       │       │               │       ├── onProcess
             │       │       │               │       │   ├── 00-Log do Block do For-Each (log-connector)
             │       │       │               │       │   └── 01-Block-Execution 2 (block-execution-connector)
-            │       │       │               │       │       ├── onProcess
-            │       │       │               │       │       │   ├── 00-Log (log-connector)
-            │       │       │               │       │       │   └── 01-SAP (IDoc and RFC) (sap-connector)
-            │       │       │               │       │       └── onException
-            │       │       │               │       │           ├── 00-Event Publisher (event-publisher-connector)
-            │       │       │               │       │           └── 01-Throw Error (throw-error-connector)
+            │       │       │               │       │       ├── onException
+            │       │       │               │       │       │   ├── 00-Event Publisher (event-publisher-connector)
+            │       │       │               │       │       │   └── 01-Throw Error (throw-error-connector)
+            │       │       │               │       │       └── onProcess
+            │       │       │               │       │           ├── 00-Log (log-connector)
+            │       │       │               │       │           └── 01-SAP (IDoc and RFC) (sap-connector)
             │       │       │               │       └── onException
             │       │       │               │           └── 00-Throw Error do Block do For-Each (throw-error-connector)
             │       │       │               └── onException
             │       │       │                   └── 00-Throw Error do For-Each (throw-error-connector)
-            │       │       └── when-condition-10 com pão
+            │       │       ├── when-condition-10 com pão
+            │       │       │   ├── 00-Log (log-connector)
+            │       │       │   ├── 01-SAP (IDoc and RFC) (sap-connector)
+            │       │       │   └── 02-Stream JSON File Reader (stream-json-file-reader-connector)
+            │       │       │       └── onProcess
+            │       │       │           ├── 00-File Reader (file-reader-connector)
+            │       │       │           └── 01-GZIP V2 (Compress and Decompress) (gzip-connector-v2)
+            │       │       └── when-condition-9
             │       │           ├── 00-Log (log-connector)
-            │       │           ├── 01-SAP (IDoc and RFC) (sap-connector)
-            │       │           └── 02-Stream JSON File Reader (stream-json-file-reader-connector)
+            │       │           └── 01-Do While (do-while-connector)
             │       │               └── onProcess
-            │       │                   ├── 00-File Reader (file-reader-connector)
-            │       │                   └── 01-GZIP V2 (Compress and Decompress) (gzip-connector-v2)
+            │       │                   └── 00-HL7 (hl7v2-mllp-connector)
             │       └── otherwise-se o bicho pegar
             │           └── 00-Log de nada (log-connector)
             └── when-condition-1
