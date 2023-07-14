@@ -14,10 +14,10 @@
 │       ├── 01-Log (log-connector)
 │       └── 02-Log (log-connector)
 ├── 06-Stream JSON File Reader (stream-json-file-reader-connector)
-│   ├── onException
-│   │   └── 00-File Writer (file-writer-connector)
-│   └── onProcess
-│       └── 00-Excel (excel-connector)
+│   ├── onProcess
+│   │   └── 00-Excel (excel-connector)
+│   └── onException
+│       └── 00-File Writer (file-writer-connector)
 ├── 07-Stream XML File Reader (stream-xml-file-reader-connector)
 │   ├── onException
 │   │   └── 00-XML Schema Validator (xml-validator-connector)
@@ -40,30 +40,30 @@
     │   │   └── onProcess
     │   │       └── 00-Log (log-connector)
     │   └── 02-Parallel Execution (parallel-execution-connector)
+    │       ├── execution-execution-naturalmente-nova
+    │       │   ├── 00-Log (log-connector)
+    │       │   └── 01-Decidir se Funciona (choice)
+    │       │       ├── otherwise-se funcionar
+    │       │       │   └── 00-Log (log-connector)
+    │       │       ├── when-se funcionar parcialmente
+    │       │       │   └── 00-Log (log-connector)
+    │       │       └── when-se nao funcionar
+    │       │           └── 00-Log (log-connector)
     │       ├── execution-execution-sem-medo-de-ser-feliz
     │       │   ├── 00-Log (log-connector)
     │       │   ├── 01-Stream File Reader (stream-file-reader-connector)
-    │       │   │   ├── onException
-    │       │   │   │   └── 00-CSV to Excel (csv-to-excel-connector)
-    │       │   │   └── onProcess
-    │       │   │       └── 00-Excel (excel-connector)
+    │       │   │   ├── onProcess
+    │       │   │   │   └── 00-Excel (excel-connector)
+    │       │   │   └── onException
+    │       │   │       └── 00-CSV to Excel (csv-to-excel-connector)
     │       │   ├── 02-Another Transformer (JOLT) (transformer)
     │       │   └── 03-Digibee Storage (digibee-storage-connector)
-    │       ├── execution-execution-3
-    │       │   ├── 00-Log (log-connector)
-    │       │   └── 01-Choice (choice)
-    │       │       ├── when-condition-3
-    │       │       │   └── 00-Log (log-connector)
-    │       │       └── otherwise-condition-4
-    │       │           └── 00-Log (log-connector)
-    │       └── execution-execution-naturalmente-nova
+    │       └── execution-execution-3
     │           ├── 00-Log (log-connector)
-    │           └── 01-Decidir se Funciona (choice)
-    │               ├── otherwise-se funcionar
+    │           └── 01-Choice (choice)
+    │               ├── otherwise-condition-4
     │               │   └── 00-Log (log-connector)
-    │               ├── when-se funcionar parcialmente
-    │               │   └── 00-Log (log-connector)
-    │               └── when-se nao funcionar
+    │               └── when-condition-3
     │                   └── 00-Log (log-connector)
     └── otherwise-condition-8
         ├── 00-Log (log-connector)
@@ -105,12 +105,12 @@
             │       │       │               │       ├── onProcess
             │       │       │               │       │   ├── 00-Log do Block do For-Each (log-connector)
             │       │       │               │       │   └── 01-Block-Execution 2 (block-execution-connector)
-            │       │       │               │       │       ├── onException
-            │       │       │               │       │       │   ├── 00-Event Publisher (event-publisher-connector)
-            │       │       │               │       │       │   └── 01-Throw Error (throw-error-connector)
-            │       │       │               │       │       └── onProcess
-            │       │       │               │       │           ├── 00-Log (log-connector)
-            │       │       │               │       │           └── 01-SAP (IDoc and RFC) (sap-connector)
+            │       │       │               │       │       ├── onProcess
+            │       │       │               │       │       │   ├── 00-Log (log-connector)
+            │       │       │               │       │       │   └── 01-SAP (IDoc and RFC) (sap-connector)
+            │       │       │               │       │       └── onException
+            │       │       │               │       │           ├── 00-Event Publisher (event-publisher-connector)
+            │       │       │               │       │           └── 01-Throw Error (throw-error-connector)
             │       │       │               │       └── onException
             │       │       │               │           └── 00-Throw Error do Block do For-Each (throw-error-connector)
             │       │       │               └── onException
