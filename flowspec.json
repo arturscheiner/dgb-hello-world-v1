@@ -407,50 +407,6 @@
         "remoteDirectory": "folder"
       },
       "id": "b89acb56-3b47-409d-bef3-5d3b3388807c"
-    },
-    {
-      "type": "connector",
-      "name": "Azure-Blob-Storage-Connector",
-      "stepName": "Blob Storage (Azure)",
-      "accountLabel": "azure",
-      "params": {
-        "operation": "upload",
-        "fileName": "file.csv",
-        "remoteFileName": "test.csv",
-        "containerName": "container",
-        "showFileLink": true,
-        "failOnError": false
-      },
-      "id": "7fbf7672-79a8-4606-ae41-7ca7831c673c"
-    },
-    {
-      "type": "connector",
-      "name": "dropbox-connector",
-      "stepName": "Dropbox",
-      "accountLabel": "dropbox",
-      "params": {
-        "remotePath": "/data.csv",
-        "operation": "download",
-        "localFile": "test.txt"
-      },
-      "id": "06dc0e97-f409-4f9f-a09e-47346e6c68f9"
-    },
-    {
-      "type": "connector",
-      "accountLabel": "mysql",
-      "name": "sap-connector",
-      "stepName": "SAP (IDoc and RFC)",
-      "params": {
-        "failOnError": false,
-        "operation": "RFC",
-        "asHost": "localhost",
-        "lang": "en",
-        "client": "400",
-        "sysnr": "01",
-        "RFC": "YYPCL_RFC_ORDEM_FATURA",
-        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
-      },
-      "id": "b37200e7-07a9-463b-ae0f-a748fabb9ab5"
     }
   ],
   "680e3f7f-5281-4fff-bfb8-564df39d0323-onProcessTrack": [
@@ -821,18 +777,6 @@
         "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
       },
       "id": "6be3f642-c30f-4c56-8637-c004ff74bff5"
-    },
-    {
-      "type": "connector",
-      "name": "dropbox-connector",
-      "stepName": "Dropbox",
-      "accountLabel": "dropbox",
-      "params": {
-        "remotePath": "/data.csv",
-        "operation": "download",
-        "localFile": "test.txt"
-      },
-      "id": "9f0e3086-59d5-40c2-a925-3037ae34f43c"
     },
     {
       "type": "connector",
