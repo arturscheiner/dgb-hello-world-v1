@@ -74,6 +74,11 @@
             │       │   └── 01-Choice (choice)
             │       │       ├── when-condition-5
             │       │       │   └── 00-Logs (log-connector)
+            │       │       ├── when-condition-9
+            │       │       │   ├── 00-Log (log-connector)
+            │       │       │   └── 01-Do While (do-while-connector)
+            │       │       │       └── onProcess
+            │       │       │           └── 00-HL7 (hl7v2-mllp-connector)
             │       │       ├── when-condition-9ssss
             │       │       │   ├── 00-Log-eterno (log-connector)
             │       │       │   └── 01-Bloco de Validação Inicial (block-execution-connector)
@@ -108,18 +113,13 @@
             │       │       │               │           └── 00-Throw Error do Block do For-Each (throw-error-connector)
             │       │       │               └── onException
             │       │       │                   └── 00-Throw Error do For-Each (throw-error-connector)
-            │       │       ├── when-condition-10 com pão
-            │       │       │   ├── 00-Log (log-connector)
-            │       │       │   ├── 01-SAP (IDoc and RFC) (sap-connector)
-            │       │       │   └── 02-Stream JSON File Reader (stream-json-file-reader-connector)
-            │       │       │       └── onProcess
-            │       │       │           ├── 00-File Reader (file-reader-connector)
-            │       │       │           └── 01-GZIP V2 (Compress and Decompress) (gzip-connector-v2)
-            │       │       └── when-condition-9
+            │       │       └── when-condition-10 com pão
             │       │           ├── 00-Log (log-connector)
-            │       │           └── 01-Do While (do-while-connector)
+            │       │           ├── 01-SAP (IDoc and RFC) (sap-connector)
+            │       │           └── 02-Stream JSON File Reader (stream-json-file-reader-connector)
             │       │               └── onProcess
-            │       │                   └── 00-HL7 (hl7v2-mllp-connector)
+            │       │                   ├── 00-File Reader (file-reader-connector)
+            │       │                   └── 01-GZIP V2 (Compress and Decompress) (gzip-connector-v2)
             │       └── otherwise-se o bicho pegar
             │           └── 00-Log de nada (log-connector)
             └── when-condition-1
