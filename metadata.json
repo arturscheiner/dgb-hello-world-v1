@@ -1,0 +1,12 @@
+{
+  "name" : "dgb-hello-world",
+  "id" : "5e0e5b95-abf6-425e-9fcb-c83f84522e3e",
+  "version" : "1.11",
+  "checksum" : "07b1c",
+  "shasum" : "05ea48b5162366e27b73887c90c0b2d2208c988d",
+  "summary" : "Novo commit no sistema",
+  "description" : "Ultimately, the trick to structuring an exceptional commit message is to find the proper balance between brevity and detail.",
+  "size": "SMALL",
+  "replicas": "1",
+  "consumers": "10"
+}
