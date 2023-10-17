@@ -81,6 +81,20 @@
         "onException": "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onExceptionTrack"
       },
       "id": "0b47f04f-ed7d-4155-b038-0cc427ad7ef9"
+    },
+    {
+      "type": "connector",
+      "name": "stream-json-file-reader-connector",
+      "stepName": "Stream JSON File Reader",
+      "params": {
+        "fileName": "data.json",
+        "itemIdentifier": "data",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "f2818ba6-0303-4e0a-bc11-2b921db21f6c-onProcessTrack",
+        "onException": "f2818ba6-0303-4e0a-bc11-2b921db21f6c-onExceptionTrack"
+      },
+      "id": "f2818ba6-0303-4e0a-bc11-2b921db21f6c"
     }
   ],
   "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onProcessTrack": [
@@ -129,6 +143,39 @@
         "multipleSheets": false
       },
       "id": "cd752292-ebe1-4060-a7c9-5b831dfc8146"
+    }
+  ],
+  "f2818ba6-0303-4e0a-bc11-2b921db21f6c-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "excel-connector",
+      "stepName": "Excel",
+      "params": {
+        "operation": "read",
+        "cell": "A:1",
+        "cells": "[\"A:1\", \"B:2\", \"C:6\"]",
+        "sheets": "[\"Planilha2\", \"Planilha4\"]",
+        "cellValue": "example",
+        "excelFullPath": "/Users/example.xlsx",
+        "jsonData": "[{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"},{\"src\":\"Images/Sun.png\",\"name\":\"sun1\",\"hOffset\":250,\"vOffset\":250,\"alignment\":\"center\"}]",
+        "sheetName": "Planilha1",
+        "readAllSheets": false,
+        "failOnError": true
+      },
+      "id": "3ae53b1f-732d-49b4-89f1-f8499dd12e57"
+    }
+  ],
+  "f2818ba6-0303-4e0a-bc11-2b921db21f6c-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "file-writer-connector",
+      "stepName": "File Writer",
+      "params": {
+        "fileName": "data.csv",
+        "inputData": "{{ message.data }}",
+        "fileExistsPolicy": "append"
+      },
+      "id": "d347038e-7147-4076-887a-cfaf3e4cccf0"
     }
   ]
 }
