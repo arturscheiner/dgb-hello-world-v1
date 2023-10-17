@@ -66,6 +66,69 @@
         "failOnError": false
       },
       "id": "78007a5b-c4af-43ba-bb40-18d9c9739a64"
+    },
+    {
+      "type": "connector",
+      "name": "stream-file-reader-pattern-connector",
+      "stepName": "Stream File Reader Pattern",
+      "params": {
+        "fileName": "",
+        "tokenizer": "XML",
+        "token": "",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onProcessTrack",
+        "onException": "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onExceptionTrack"
+      },
+      "id": "0b47f04f-ed7d-4155-b038-0cc427ad7ef9"
+    }
+  ],
+  "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "csv-to-excel-connector",
+      "stepName": "CSV to Excel",
+      "params": {
+        "fileName": "file.csv",
+        "delimiter": ",",
+        "failOnError": false,
+        "multipleSheets": false
+      },
+      "id": "7b00d41f-45f0-490b-8465-cbdb70390c25"
+    },
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "e5ceec79-9ec6-4469-9a76-6abfb363658c"
+    },
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "27ce6246-87f1-499d-80e0-109a3b4e7878"
+    }
+  ],
+  "0b47f04f-ed7d-4155-b038-0cc427ad7ef9-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "csv-to-excel-connector",
+      "stepName": "CSV to Excel",
+      "params": {
+        "fileName": "file.csv",
+        "delimiter": ",",
+        "failOnError": false,
+        "multipleSheets": false
+      },
+      "id": "cd752292-ebe1-4060-a7c9-5b831dfc8146"
     }
   ]
 }
