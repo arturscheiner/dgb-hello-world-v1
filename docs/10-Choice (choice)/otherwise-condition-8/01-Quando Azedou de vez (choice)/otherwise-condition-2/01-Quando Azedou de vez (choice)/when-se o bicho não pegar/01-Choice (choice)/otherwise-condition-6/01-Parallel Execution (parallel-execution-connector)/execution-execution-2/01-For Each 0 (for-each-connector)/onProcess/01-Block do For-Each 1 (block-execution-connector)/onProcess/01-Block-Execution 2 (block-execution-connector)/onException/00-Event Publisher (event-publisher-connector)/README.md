@@ -1,13 +1,21 @@
 # Step Name -> Event Publisher
-## Connector Denominator -> event-publisher-connector
+## Component Denominator -> event-publisher-connector
 
-## Description
+## Component Description
 
 Event Publisher publishes an event for other configured pipelines to listen to it and have a chance to react when the publishing happens.
 
 Check this component official documentation: [event-publisher-connector](https://docs.digibee.com/documentation/components/queues-and-messaging/event-publisher "Digibee event-publisher-connector documentation")
 
 ## Component Configuration Details
+### Documentation
+
+O parâmetro referente à documentação descritiva do componente não foi preenchido ou está indisponível para este componente.
+
+### Documentation
+
+O parâmetro referente à documentação descritiva do componente não foi preenchido ou está indisponível para este componente.
+
 ### Parameters
 
 * body
